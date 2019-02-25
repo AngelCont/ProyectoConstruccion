@@ -150,13 +150,84 @@ if ((val1 > val2) && (val1 > val3))
 }
 ~~~
 
+## Sangria y espaciamiento
+
+1. Para la sangria seran utilizados los TAB, no los espacios
+
+2. Las llaves "{ }" estarán al mismo nivel del código
+
+Ejemplo correcto:
+
+~~~ c#
+bool metodoEjemplo()
+{
+  //Instrucciones
+  //...
+}
+~~~
+
+Ejemplo incorrecto:
+
+~~~ c#
+bool metodoEjemplo(){
+//Instrucciones
+//...
+}
+~~~
+
+3. Para separar un grupo lógico de código, utiliza una línea en blanco
+
+Ejemplo correcto:
+
+~~~ c#
+bool metodoEjemplo()
+{
+String mensaje = "Hola " + nombreEmpleado;
+String MensajeCompleto = mensaje + ", hoy debes realizar " + metaDiaria;
+
+messageBox(MensajeCompleto);  
+//Instrucciones
+//...
+}
+~~~
+
+Ejemplo incorrecto
+
+~~~ c#
+bool metodoEjemplo()
+{
+string mensaje = "Hola " + nombreEmpleado;
+string MensajeCompleto = mensaje + ", hoy debes realizar " + metaDiaria;
+-----------------------------------------------------------------------
+messageBox(MensajeCompleto);  
+//Instrucciones
+//...
+}
+~~~
+
+4. Entre cada método de una clase solo debe haber una línea en blanco de separación
+
+5. Uso de #region para agrupar piezas de codigo juntas
+
+Ejemplo:
+
+~~~ c#
+#region
+
+bool entradaValidada = false;
+string metaDiaria;
+#endregion
+~~~
+
+6. Mantener privadas las variables globales, las propiedades y los métodos en la parte superior del archivo y los elementos públicos en la parte inferior
+=======
 Utilizando el estandar .NET de Microsoft como base este es el estandard de codificación que rige este proyecto:
 
 ## Definición de comentarios
 
 - Los comentarios se ponen después de dos diagonales: //
 - Los comentarios demasiados largos (más de 100 carácteres) se continuan en la siguiente línea
-- No debe ser comentado así: /\*...*/
+- No debe ser comentado así: /\*...* /
 
 _Buen comentario_
 
