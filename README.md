@@ -1,117 +1,154 @@
-#Notacion para el nombramiento de variables
+# Proyecto de Construcción
 
-1.- Notacion Camell: El primer caracter de las palabras se escribe en mayuscula (Exceptuando la primer palabra) y los demas caractereres se escriben en minusculas.
+## Nombramiento de variables
 
-      Forma correcta: variablesLocales.
-      Forma Incorrecta: VariablesLocales.
+- Notacion CamelCase: El primer caracter de las palabras se escribe en mayuscula (exceptuando la primer palabra) y los demas caractereres se escriben en minuscula.
+- Usa la notacion Camell para el nombramiento de variables.
 
-1.1- Usa la notacion Camell para el nombramiento de variables.
+~~~ c#
+//Forma correcta:
+int variablesLocales
+int saldo
 
-    int Saldo.
+//Forma incorrecta:
+int VariablesLocales.
+string NombrePersonal
+~~~
 
-2.-Usa palabras entendibles y descriptivas para nombrar a las variables. NO uses abreviaciones.
+- Usa palabras entendibles y descriptivas para nombrar a las variables. __NO uses abreviaciones__.
 
-      Forma correcta: string dirección;
-                    int salario;
+~~~ c#
+//Forma correcta:
+string dirección;
+int salario;
 
-      Forma incorrecta: string nom;
-                      string domic;
-                      int sal;
+//Forma incorrecta:
+string nom;
+string domic;
+int sal;
+~~~
 
-#Notacion para el nombramiento de clases.
+## Nombramiento de clases
 
-1.- Notación Pascal: El primer caracter de todas las palabras se escriben en mayusculas, los demas caracteres se escriben en minusculas.
+- Notación Pascal: El primer caracter de todas las palabras se escriben en mayusculas, los demas caracteres se escriben en minusculas.
+- Usa __unicamente__ notacion __Pascal__ para nombrar las clases
 
-      Forma correcta: NombreDeLaClase.
-      Forma Incorrecta: nombreDelaClase.
+~~~ c#
+//Forma correcta:
+public class NombreDeLaClase{
 
-1.1.- Usa notacion Pascal para el nombre de las clases.
+}
 
-    Public class HolaMundo
-    {
-        ...
-    }
+public class HolaMundo{
+  ...
+}
 
-#Notacion para el nombramiento de metodos.
+//Forma Incorrecta:
+public class nombreDelaClase{
 
-1.- Utiliza notación Pascal para el nombramiento de los metodos.
+}
 
-      Forma correcta:
-      void SumarPuntos(int puntos)
-      {
-        ...
-        ...
-      }
+public class holaMundo{
+  ...
+}
+~~~
 
-      Forma incorrecta:
-      void sumarPuntos(int puntos)
-      {
-        ...
-        ...
-      }
+## Notacion para el nombramiento de metodos.
 
-2.-Usa notación de Camell para variables y parámetros de los métodos.
+- Utiliza notación CamelCase para el nombramiento de los metodos.
+
+~~~ c#
+//Forma correcta:
+void sumarPuntos(int puntos)
+{
+  ...
+  ...
+}
+
+//Forma incorrecta:
+void SumarPuntos(int puntos)
+{
+  ...
+  ...
+}
+~~~
+
+- __Usa notación de CamelCase para variables y parámetros de los métodos.__
 
 Ejemplo:
 
+~~~ c#
 int cuentaTotal = 0;
-void DiHola(string nombre)
+void diHola(string nombre)
 {
   string mensajeCompleto = “Hola “ + nombre;
   ...
 }
+~~~
 
-Usa el prefijo “I” con notaciónPascal para las interfaces
-(Ejemplo: IEntity).
+- Usa el prefijo “I” con notación Pascal para las interfaces
 
-Utiliza “T“ para estructuras de tipos de datos.
+~~~ c#
+//Ejemplo: 
+IEntity
+~~~
 
-publicclassTFactura
+- Utiliza “T“ para estructuras de tipos de datos.
+
+~~~ c#
+public class TFactura
 {
-  public String NombreDelCliente;
+  public String nombreDelCliente;
   (...)
-  public ArrayList LineasDeDetalle= newArrayList();
+  public ArrayList lineasDeDetalle= newArrayList();
 }
+~~~
 
-3.-No uses notación Húngara para el nombre de las variables.
+- __No__ usar notación Húngara para el nombre de las variables (Que codificas a gusto personal).
 
-4.-La función Húngara –la  cual especifica el tipo de dato de la variable como un prefijo en el nombre y utliza el prefijo m_ para variables globales.
+- __Tampoco__ usar la función Húngara –la  cual especifica el tipo de dato de la variable como un prefijo en el nombre y utliza el prefijo m_ para variables globales.
 
-Ejemplo: string m_sNombre;
-         int nEdad;
+~~~ c#
+//Ejemplo:
+string m_sNombre;
 
-5.-El  uso  del tipo de dato y del prefijo m_ para representar variables globales no debeser usado. Todas las variables deben usar una notación Camell.
+int nEdad;
+~~~
 
-6.-No uses nombres de variables de un solo caracter como i, n, s, etc.
+- El uso del tipo de dato y del prefijo m_ para representar variables globales no debe ser usado. Todas las variables deben usar una notación CamelCase.
+
+- No uses nombres de variables de un solo caracter como i, n, s, etc.
 Usa nombres como indice, temp.
 
-7.-Una excepciónen este caso podría ser las variables usadas para iteraciones en los ciclos:
+- Una excepción en este caso podría ser las variables usadas para iteraciones en los ciclos:
 
+~~~ c#
 for ( int i = 0; i < cuantos; i++)
 {
   ...
 }
+~~~
 
-8.-No uses guiones bajos ( _ ) para nombres de variables locales.
+- No uses guiones bajos ( _ ) para nombres de variables locales.
 
-9.-Todas  las variables globalesdeben  usar  el  prefijo  de  guión  bajo  ( _ )  de  tal  forma  que puedan ser identificadas de otras variables locales.
+- Todas las variables globalesdeben usar el  prefijo de guión bajo ( _ ) de tal forma que puedan ser identificadas de otras variables locales.
 
-10.-No uses palabras reservadas para nombres de variables.
+- No uses palabras reservadas para nombres de variables.
 
-11-Escriba solo una declaración por línea.
+- Escriba solo una declaración por línea.
 
-12.-Si las líneas de continuación no están sangradas automáticamente, sangra una tabulación (cuatro espacios).
+- Si las líneas de continuación no están sangradas automáticamente, sangra una tabulación (cuatro espacios).
 
-13.-Agregue al menos una línea en blanco entre las definiciones de métodos y las definiciones de propiedades.
+- Agregue al menos una línea en blanco entre las definiciones de métodos y las definiciones de propiedades.
 
-14.-Use paréntesis para hacer que las cláusulas en una expresión sean aparentes, como se muestra en el siguiente código.
+- Use paréntesis para hacer que las cláusulas en una expresión sean aparentes, como se muestra en el siguiente código.
 
+~~~ c#
 if ((val1 > val2) && (val1 > val3))
 {
     // Codigo
 }
-
-# Proyecto de Construcción
+~~~
 
 Utilizando el estandar .NET de Microsoft como base este es el estandard de codificación que rige este proyecto:
 
@@ -225,7 +262,7 @@ La base para la documentación de una clase cualquiera en este proyecto es:
 /// <remark>
 /// Explicación poco mas detallada de clase.
 /// </remark>
-/// 
+///
 public class AlgunaClase
 {
 
