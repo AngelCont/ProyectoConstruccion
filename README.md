@@ -1,9 +1,11 @@
 # Proyecto de Construcción
 
+Utilizando el estandar .NET de Microsoft como base este es el estandard de codificación que rige este proyecto:
+
 ## Nombramiento de variables
 
-- Notacion CamelCase: El primer caracter de las palabras se escribe en mayuscula (exceptuando la primer palabra) y los demas caractereres se escriben en minuscula.
-- Usa la notacion Camell para el nombramiento de variables.
+- Notación CamelCase: El primer carácter de las palabras se escribe en mayúscula (exceptuando la primer palabra) y los demás carácteres se escriben en minúscula.
+- Usa la notación __Camel case__ para el nombramiento de variables.
 
 ~~~ c#
 //Forma correcta:
@@ -15,7 +17,7 @@ int VariablesLocales.
 string NombrePersonal
 ~~~
 
-- Usa palabras entendibles y descriptivas para nombrar a las variables. __NO uses abreviaciones__.
+- Utiliza palabras entendibles y descriptivas para nombrar a las variables. __NO uses abreviaciones__.
 
 ~~~ c#
 //Forma correcta:
@@ -28,10 +30,37 @@ string domic;
 int sal;
 ~~~
 
+## Nombramiento de propiedades
+
+- Notación Pascal: El primer carácter de todas las palabras se escriben en mayúsculas, los demas carácteres se escriben en minusculas.
+- Utiliza notación __Pascal__ para nombrar las clases.
+
+~~~ c#
+//Forma correcta:
+public int Propiedad { get; set; }
+
+//Forma incorrecta:
+public propiedad { get; set; }
+public string nombrePersonal {get; set;}
+~~~
+
+- Usa palabras entendibles y descriptivas para nombrar a las variables. __NO uses abreviaciones__.
+
+~~~ c#
+//Forma correcta:
+public string Direccion { get; set; };
+public int Salario { get; set; };
+
+//Forma incorrecta:
+private string nom { get; set; };
+public string domic { get; set; };
+int sal { get; set; };
+~~~
+
 ## Nombramiento de clases
 
-- Notación Pascal: El primer caracter de todas las palabras se escriben en mayusculas, los demas caracteres se escriben en minusculas.
-- Usa __unicamente__ notacion __Pascal__ para nombrar las clases
+- Notación Pascal: El primer carácter de todas las palabras se escriben en mayúsculas, los demas carácteres se escriben en minusculas.
+- Utiliza notación __Pascal__ para nombrar las clases.
 
 ~~~ c#
 //Forma correcta:
@@ -53,47 +82,53 @@ public class holaMundo{
 }
 ~~~
 
-## Notacion para el nombramiento de metodos.
+## Nombramiento de metodos
 
-- Utiliza notación CamelCase para el nombramiento de los metodos.
+- Notación Pascal: El primer carácter de todas las palabras se escriben en mayúsculas, los demas carácteres se escriben en minusculas.
+- Utiliza notación __Pascal__ para nombrar las clases.
 
 ~~~ c#
 //Forma correcta:
-void sumarPuntos(int puntos)
+void SumarPuntos(int puntos)
 {
   ...
   ...
 }
 
 //Forma incorrecta:
-void SumarPuntos(int puntos)
+void sumarPuntos(int puntos)
 {
   ...
   ...
 }
 ~~~
 
-- __Usa notación de CamelCase para variables y parámetros de los métodos.__
+- __Usa notación de Camel case para variables y parámetros de los métodos.__
 
 Ejemplo:
 
 ~~~ c#
 int cuentaTotal = 0;
-void diHola(string nombre)
+void EscribeHola(string nombre)
 {
   string mensajeCompleto = “Hola “ + nombre;
   ...
 }
 ~~~
 
-- Usa el prefijo “I” con notación Pascal para las interfaces
+## Interfaces y estructuras de datos
+
+- Usa el prefijo __“I”__ con notación __Pascal__ para las interfaces.
 
 ~~~ c#
-//Ejemplo: 
-IEntity
+//Ejemplo:
+interface IClaseDAO{
+  void Metodo1(int variable);
+  int Metodo2();
+}
 ~~~
 
-- Utiliza “T“ para estructuras de tipos de datos.
+- Utiliza __“T“__  con notación __Pascal__ para estructuras de tipos de datos.
 
 ~~~ c#
 public class TFactura
@@ -106,7 +141,7 @@ public class TFactura
 
 - __No__ usar notación Húngara para el nombre de las variables (Que codificas a gusto personal).
 
-- __Tampoco__ usar la función Húngara –la  cual especifica el tipo de dato de la variable como un prefijo en el nombre y utliza el prefijo m_ para variables globales.
+- __NUNCA__ usar la función Húngara –la  cual especifica el tipo de dato de la variable como un prefijo en el nombre.
 
 ~~~ c#
 //Ejemplo:
@@ -115,33 +150,32 @@ string m_sNombre;
 int nEdad;
 ~~~
 
-- El uso del tipo de dato y del prefijo m_ para representar variables globales no debe ser usado. Todas las variables deben usar una notación CamelCase.
+- El uso del tipo de dato y del prefijo m_ para representar variables globales __no debe ser usado__. Todas las variables deben usar una notación __Camel case__.
 
-- No uses nombres de variables de un solo caracter como i, n, s, etc.
-Usa nombres como indice, temp.
+- No uses nombres de variables de un solo carácter como i, n, s, etc. Usa nombres como indice, temp.
 
 - Una excepción en este caso podría ser las variables usadas para iteraciones en los ciclos:
 
 ~~~ c#
-for ( int i = 0; i < cuantos; i++)
+for (int i = 0; i < cuantos; i++)
 {
   ...
 }
 ~~~
 
-- No uses guiones bajos ( _ ) para nombres de variables locales.
+- No utilices guiones bajos ( _ ) para nombres de variables locales.
 
-- Todas las variables globalesdeben usar el  prefijo de guión bajo ( _ ) de tal forma que puedan ser identificadas de otras variables locales.
+- Todas las variables globales deben usar el  prefijo de guión bajo ( _ ) de tal forma que puedan ser identificadas de otras variables locales.
 
 - No uses palabras reservadas para nombres de variables.
 
-- Escriba solo una declaración por línea.
+- Escribe solo una declaración por línea.
 
 - Si las líneas de continuación no están sangradas automáticamente, sangra una tabulación (cuatro espacios).
 
-- Agregue al menos una línea en blanco entre las definiciones de métodos y las definiciones de propiedades.
+- Agregua al menos una línea en blanco entre las definiciones de métodos y las definiciones de propiedades.
 
-- Use paréntesis para hacer que las cláusulas en una expresión sean aparentes, como se muestra en el siguiente código.
+- Usa paréntesis para hacer que las cláusulas en una expresión sean aparentes, como se muestra en el siguiente código.
 
 ~~~ c#
 if ((val1 > val2) && (val1 > val3))
@@ -150,15 +184,59 @@ if ((val1 > val2) && (val1 > val3))
 }
 ~~~
 
-## Sangria y espaciamiento
+## Observaciones para la conexión a base de datos
 
-1. Para la sangria seran utilizados los TAB, no los espacios
-
-2. Las llaves "{ }" estarán al mismo nivel del código
-
-Ejemplo correcto:
+- No dejar la cadena de conexión cruda dentro del código.
 
 ~~~ c#
+//Forma correcta
+private string conexionString = ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
+~~~
+
+~~~ c#
+//Forma incorrecta
+private string conexionString = "Data Source=Fuente;Initial Catalog=BaseDatos;Persist Security Info=True;User ID=usuario;Password=***********"
+~~~
+
+- __No escribir la consulta sin parametrizar__
+
+~~~ c#
+//Forma correcta
+SqlCommand sqlCommand = new SqlCommand("SELECT dato FROM tabla WHERE valor = @busqueda");
+
+sqlCommand.Parameters.Add(new SqlParameter("busqueda", datoBusqueda));
+
+SqlCommand sqlCommand = new SqlCommand("INSERT INTO tabla VALUES (@registro)")
+
+sqlCommand.Parameters.Add(new SqlParameter("registro", nuevoDato));
+~~~
+
+~~~ c#
+//Forma incorrecta
+SqlCommand sqlCommand = new SqlCommand("SELECT dato FROM tabla WHERE valor = " +busqueda);
+
+SqlCommand sqlCommand = new SqlCommand("INSERT INTO tabla VALUES (" +nuevoDato+ ")")
+~~~
+
+- La plantilla __únicamente__ para los métodos de que __hacen uso de la base de datos__ es:
+
+~~~ c#
+using(SqlConnection sqlConnection = new SqlConnection(conexionString)){
+  sqlConnection.open();
+  using(SqlCommand sqlCommand = new SqlCommand("sentencia")){
+
+  }
+}
+~~~
+
+## Sangría y espaciamiento
+
+- Para la sangría seran utilizados los TAB, no los espacios.
+
+- Las llaves "{ }" estarán al mismo nivel del código.
+
+~~~ c#
+//Forma correcta
 bool metodoEjemplo()
 {
   //Instrucciones
@@ -166,48 +244,45 @@ bool metodoEjemplo()
 }
 ~~~
 
-Ejemplo incorrecto:
-
 ~~~ c#
+//Forma incorrecta
 bool metodoEjemplo(){
 //Instrucciones
 //...
 }
 ~~~
 
-3. Para separar un grupo lógico de código, utiliza una línea en blanco
-
-Ejemplo correcto:
+- Para separar un grupo lógico de código, utiliza una línea en blanco.
 
 ~~~ c#
+//Forma correcta
 bool metodoEjemplo()
 {
-String mensaje = "Hola " + nombreEmpleado;
-String MensajeCompleto = mensaje + ", hoy debes realizar " + metaDiaria;
+  String mensaje = "Hola " + nombreEmpleado;
+  String MensajeCompleto = mensaje + ", hoy debes realizar " + metaDiaria;
 
-messageBox(MensajeCompleto);  
-//Instrucciones
-//...
+  messageBox(MensajeCompleto);  
+  //Instrucciones
+  //...
 }
 ~~~
 
-Ejemplo incorrecto
-
 ~~~ c#
+//Forma incorrecta
 bool metodoEjemplo()
 {
-string mensaje = "Hola " + nombreEmpleado;
-string MensajeCompleto = mensaje + ", hoy debes realizar " + metaDiaria;
------------------------------------------------------------------------
-messageBox(MensajeCompleto);  
-//Instrucciones
-//...
+  string mensaje = "Hola " + nombreEmpleado;
+  string MensajeCompleto = mensaje + ", hoy debes realizar " + metaDiaria;
+  -----------------------------------------------------------------------
+  messageBox(MensajeCompleto);  
+  //Instrucciones
+  //...
 }
 ~~~
 
-4. Entre cada método de una clase solo debe haber una línea en blanco de separación
+- Entre cada método de una clase solo debe haber una línea en blanco de separación.
 
-5. Uso de #region para agrupar piezas de codigo juntas
+- Uso de #region para agrupar piezas de codigo juntas.
 
 Ejemplo:
 
@@ -219,26 +294,21 @@ string metaDiaria;
 #endregion
 ~~~
 
-6. Mantener privadas las variables globales, las propiedades y los métodos en la parte superior del archivo y los elementos públicos en la parte inferior
-=======
-Utilizando el estandar .NET de Microsoft como base este es el estandard de codificación que rige este proyecto:
+- Mantener privadas las variables globales, las propiedades y los métodos en la parte superior del archivo y los elementos públicos en la parte inferior
 
 ## Definición de comentarios
 
-- Los comentarios se ponen después de dos diagonales: //
-- Los comentarios demasiados largos (más de 100 carácteres) se continuan en la siguiente línea
-- No debe ser comentado así: /\*...* /
-
-_Buen comentario_
+- Los comentarios se ponen después de dos diagonales: //.
+- Los comentarios demasiados largos (más de 100 carácteres) se continuan en la siguiente línea.
+- No debe ser comentado así: /\*...* /.
 
 ~~~ c#
+//Forma correcta
 //Este es un comentario bien escrito.
 
 //Este comentario también esta bien redactado pero es demasiado largo
 //por eso se continua en otra linea.
 ~~~
-
-__Mal comentario__
 
 ~~~ c#
 /* Mal Comentario */
@@ -248,57 +318,51 @@ __Mal comentario__
  */
 ~~~
 
-- Los comentarios deben iniciar con mayúscula
-- Terminar los comentarios con un punto
-
-_Buen comentario_
+- Los comentarios deben iniciar con mayúscula.
+- Terminar los comentarios con un punto.
 
 ~~~ c#
 //Buen comentario.
 ~~~
-
-__Mal comentario__
 
 ~~~ c#
 //mal comentario
 //Mal comentario
 ~~~
 
-- Los comentarios se ponen una línea arriba de donde está lo que se quiere comentar
-- Nunca comentar al finalizar la línea de código
-
-_Buen comentario_
+- Los comentarios se ponen una línea arriba de donde está lo que se quiere comentar.
+- __Nunca__ comentar al finalizar la línea de código.
 
 ~~~ c#
+//Forma correcta
 //Verifica que el valor de la lista coincida con el número de personas.
 if(lista.getValor(i) == personas.getCantidad())
 {
-    //Resto de codigo.
+  //Resto de codigo.
 }
 ~~~
 
-__Mal comentario__
-
 ~~~ c#
+//Forma incorrecta
 if(lista.getValor(i) == personas.getCantidad()) //Verifica que los valores coincidan
 {
-    //Resto de codigo.
+  //Resto de codigo.
 }
 ~~~
 
-- Los comentarios deben ser cortos y claros
-- No debe haber comentarios que no tienen que ver con el código
-- No se debe comentar todas las variables declaradas
-
-_Buen comentario_
+- Los comentarios deben ser cortos y claros.
+- No debe haber comentarios que no tienen que ver con el código.
+- No se debe comentar todas las variables declaradas.
 
 ~~~ c#
+//Forma correcta
+
 //Actualiza el cálculo automáticamente.
 ~~~
 
-__Mal comentario__
-
 ~~~ c#
+//Forma incorrecta
+
 // le toca a ver esto a Juan
 
 int animal; //Numero de perros registrados en los estados transitados.
@@ -306,7 +370,7 @@ int animal; //Numero de perros registrados en los estados transitados.
 
 ## Documentación de clases y métodos
 
-C# utiliza XML para generar la API del proyecto
+C# utiliza XML para generar la API del proyecto.
 
 - Los comentarios utilizados para la documetación de clases y métodos usan tres barras diagonales: /// y un cuerpo de comentario con formato XML. Por ejemplo:
 
@@ -377,3 +441,6 @@ No todos los métodos utilizan esas etiquetas, si no utilizas una quítala y con
 ### Etiquetas
 
 Las etiquetas que se pueden realizar están redactadas en la web .NET de Microsoft, puede verlas [aquí](<https://docs.microsoft.com/es-es/dotnet/csharp/codedoc> "Documentar el código con comentarios XML")
+
+- Poner como conectarse con base de datos
+-  
