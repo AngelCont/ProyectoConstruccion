@@ -54,7 +54,17 @@ public int Salario { get; set; };
 //Forma incorrecta:
 private string nom { get; set; };
 public string domic { get; set; };
-int sal { get; set; };
+
+## Definición de Constantes
+
+- El nombre de las constantes van en __notación Pascal__
+- Las constantes se definen en una clase estatica _Constantes_ de la siguiente manera:
+
+~~~ c#
+static class Constantes{
+  public static int Velocidad = 400000;
+  public static floar IVA = .15;
+}
 ~~~
 
 ## Nombramiento de clases
