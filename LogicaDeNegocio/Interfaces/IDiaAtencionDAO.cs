@@ -8,7 +8,7 @@ namespace LogicaDeNegocio
 {
     interface IDiaAtencionDAO
     {
-        DiaAtencion CargarDiaAtencion();
+        DiaAtencion CargarDiaAtencion(int idTecnico);
         void GuardarNuevoDiaAtencion(DiaAtencion nuevoDiaAtención);
     }
 }

@@ -12,11 +12,11 @@ namespace AccesoDeDatos
         public static string connectionString = @"Data Source=Maruri-PC;Initial Catalog=ServicioSocial;User ID=adminSS;Password=***********";
     }
 
-    public class AccesoDeDatos
+    public class ConexionBD
     {
         private SqlConnection sqlConnection;
         private String conexionString;
-        public AccesoDeDatos()
+        public ConexionBD()
         {
             sqlConnection = new SqlConnection(conexionString);
         }

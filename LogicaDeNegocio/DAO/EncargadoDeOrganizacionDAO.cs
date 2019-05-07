@@ -3,23 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ConexionBD;
+using AccesoDeDatos;
 using System.Data.SqlClient;
 
 namespace LogicaDeNegocio
 {
     public class EncargadoDeOrganizacionDAO : IEncargadoDeOrganizacionDAO
     {
-        public EncargadoDeOrganizacion CargarEncargadoDeOrganizacion()
+        public EncargadoDeOrganizacion CargarEncargadoDeOrganizacion(int idOrganizacion)
         {
-            AccesoDeDatos acceso = new AccesoDeDatos();
+            ConexionBD conexionBD = new ConexionBD();
             EncargadoDeOrganizacion encargadoDeOrganizacion = new EncargadoDeOrganizacion();
 
-            using (SqlConnection sqlConnection = acceso.GetConexion())
+            using (SqlConnection sqlConnection = conexionBD.GetConnection())
             {
                 sqlConnection.Open();
-                using (SqlCommand sqlCommand = new SqlCommand("SELECT FROM", sqlConnection))
+                using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM encargadodeOrganizacion WHERE FK_idorganizacionVinculada = @busquedaOrganizacion", sqlConnection))
                 {
+                    sqlCommand.Parameters.Add(new SqlParameter("busquedaOrganizacion", idOrganizacion));
                     SqlDataReader reader = sqlCommand.ExecuteReader();
 
                     while (reader.Read())
@@ -29,28 +30,27 @@ namespace LogicaDeNegocio
                         encargadoDeOrganizacion.ApellidoPaterno = reader.GetString(2);
                         encargadoDeOrganizacion.ApellidoMaterno = reader.GetString(3);
                         encargadoDeOrganizacion.Cargo = reader.GetString(4);
-                        encargadoDeOrganizacion.Email = reader.GetString(5);
-                        encargadoDeOrganizacion.IdOrganizacion = reader.GetInt32(6);
+                        encargadoDeOrganizacion.IdOrganizacion = reader.GetInt32(5);
                     }
                 }
-                acceso.CerrarConexion();
+                conexionBD.CloseConnection();
             }
             return encargadoDeOrganizacion;
         }
 
         public void GuardarEncargadoDeOrganizacion(EncargadoDeOrganizacion nuevoEncargadoDeOrganizacion)
         {
-            AccesoDeDatos acceso = new AccesoDeDatos();
-            using (SqlConnection sqlConnection = acceso.GetConexion())
+            ConexionBD conexionBD = new ConexionBD();
+            using (SqlConnection sqlConnection = conexionBD.GetConnection())
             {
                 sqlConnection.Open();
-                using (SqlCommand sqlCommand = new SqlCommand("INSERT INTO  VALUES (@nombre, @apellidoPaterno, @apellidoMaterno, @cargo, @email, @idOrganizacion)"))
+                using (SqlCommand sqlCommand = new SqlCommand("INSERT INTO encargadodeOrganizacion VALUES (@id, @nombre, @apellidoPaterno, @apellidoMaterno, @cargo, @idOrganizacion)"))
                 {
+                    sqlCommand.Parameters.Add(new SqlParameter("id", null));
                     sqlCommand.Parameters.Add(new SqlParameter("nombre", nuevoEncargadoDeOrganizacion.Nombre));
                     sqlCommand.Parameters.Add(new SqlParameter("apellidoPaterno", nuevoEncargadoDeOrganizacion.ApellidoPaterno));
                     sqlCommand.Parameters.Add(new SqlParameter("apellidoMaterno", nuevoEncargadoDeOrganizacion.ApellidoMaterno));
                     sqlCommand.Parameters.Add(new SqlParameter("cargo", nuevoEncargadoDeOrganizacion.Cargo));
-                    sqlCommand.Parameters.Add(new SqlParameter("email", nuevoEncargadoDeOrganizacion.Email));
                     sqlCommand.Parameters.Add(new SqlParameter("idOrganizacion", nuevoEncargadoDeOrganizacion.IdOrganizacion));
 
                     try
@@ -59,10 +59,10 @@ namespace LogicaDeNegocio
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine(ex.Message);
+                        throw ex;
                     }
                 }
-                acceso.CerrarConexion();
+                conexionBD.CloseConnection();
             }
         }
     }

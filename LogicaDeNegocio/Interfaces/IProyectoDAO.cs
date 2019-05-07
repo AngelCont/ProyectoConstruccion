@@ -10,9 +10,8 @@ namespace LogicaDeNegocio
     {
         void GuardarNuevoProyecto(Proyecto nuevoProyecto);
         List<Proyecto> CargarProyectos();
-        Proyecto CargarProyecto(string nombreProyecto);
+        Proyecto CargarProyecto(int idProyecto);
         void ModificarNombre(string nuevoNombre, int idPropyecto);
-        void ModificarOrganizacion(string nuevaOrganizacion, int idProyecto);
         void ModificarResponsable(string nuevoResponsable, int idProyecto);
         void ModificarCupo(int nuevoCupo, int idProyecto);
         void ModificarDescripcionGeneral(string nuevaDescripcion, int idProyecto);
@@ -20,7 +19,7 @@ namespace LogicaDeNegocio
         void ModificarResponsabilidad(string nuevaResponsabilidad, int idProyecto);
         void ModificarPoblacionAtendida(string nuevaPoblacion, int idProyecto);
         void ModificarHorario(int nuevaHoraInicio, int nuevaHoraFin, int idProyecto);
-        void ModificarDuracion(DateTime nuevaFechaInicio, DateTime NuevaFechaFin, int idProyecto);
+        void ModificarDuracion(DateTime nuevaFechaInicio, DateTime nuevaFechaFin, int idProyecto);
 
     }
 }

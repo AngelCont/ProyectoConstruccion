@@ -54,6 +54,7 @@ public int Salario { get; set; };
 //Forma incorrecta:
 private string nom { get; set; };
 public string domic { get; set; };
+~~~
 
 ## Definición de Constantes
 

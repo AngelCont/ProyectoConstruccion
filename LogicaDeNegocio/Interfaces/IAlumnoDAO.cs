@@ -11,7 +11,7 @@ namespace LogicaDeNegocio
         void GuardarAlumno(Alumno nuevoAlumno);
         List<Alumno> CargarAlumnos();
         Alumno CargarAlumnoPorMatricula(string matricula);
-        void EliminarAlumno(int idAlumno)
+        void EliminarAlumno(int idAlumno);
         void ModificarNombre(string nuevoNombre, int idAlumno);
         void ModificarApellidoPaterno(string nuevoApellidoPaterno, int idAlumno);
         void ModificarApellidoMaterno(string nuevoApellidoMaterno, int idAlumno);

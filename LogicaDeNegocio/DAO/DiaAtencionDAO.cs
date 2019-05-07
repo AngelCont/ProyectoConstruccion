@@ -10,47 +10,50 @@ namespace LogicaDeNegocio
 {
     public class DiaAtencionDAO : IDiaAtencionDAO
     {
-        public DiaAtencion CargarDiaAtencion()
+        public DiaAtencion CargarDiaAtencion(int idTecnico)
         {
-            AccesoDeDatos acceso = new AccesoDeDatos();
+            ConexionBD acceso = new ConexionBD();
             DiaAtencion diaAtencion = new DiaAtencion();
 
-            using (SqlConnection sqlConnection = acceso.GetConexion())
+            using (SqlConnection sqlConnection = acceso.GetConnection())
             {
                 sqlConnection.Open();
-                using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM ", sqlConnection))
+                using (SqlCommand sqlCommand = new SqlCommand("SELECT * FROM diaAtencion WHERE FK_idtecnicoAcademico = @busqueda", sqlConnection))
                 {
+                    sqlCommand.Parameters.Add(new SqlParameter("busqueda", idTecnico));
+
                     SqlDataReader reader = sqlCommand.ExecuteReader();
 
                     while (reader.Read())
                     {
                         diaAtencion.IdDiaAtencion = reader.GetInt32(0);
-                        diaAtencion.Nombre = reader.GetString(1);
+                        diaAtencion.Dia = reader.GetString(1);
                         diaAtencion.HoraInicio = reader.GetInt32(2);
                         diaAtencion.HoraFin = reader.GetInt32(3);
                         diaAtencion.Lugar = reader.GetString(4);
                         diaAtencion.IdTecnicoAcademico = reader.GetInt32(5);
                     }
                 }
-                acceso.CerrarConexion();
+                acceso.CloseConnection();
             }
             return diaAtencion;
         }
 
         public void GuardarNuevoDiaAtencion(DiaAtencion nuevoDiaAtención)
         {
-            AccesoDeDatos acceso = new AccesoDeDatos();
+            ConexionBD acceso = new ConexionBD();
 
-            using (SqlConnection sqlConnection = acceso.GetConexion())
+            using (SqlConnection sqlConnection = acceso.GetConnection())
             {
                 sqlConnection.Open();
-                using (SqlCommand sqlCommand = new SqlCommand("INSERT INTO  VALUES (@dia, @horaInicio, @horaFin, @lugar, @tecnico)"))
+                using (SqlCommand sqlCommand = new SqlCommand("INSERT INTO  VALUES (@id, @dia, @horaInicio, @horaFin, @lugar, @tecnico)"))
                 {
-                    sqlCommand.Parameters.Add(new SqlParameter("dia", nuevoDiaAtención.Nombre));
+                    sqlCommand.Parameters.Add(new SqlParameter("id", null));
+                    sqlCommand.Parameters.Add(new SqlParameter("dia", nuevoDiaAtención.Dia));
                     sqlCommand.Parameters.Add(new SqlParameter("horaInicio", nuevoDiaAtención.HoraInicio));
                     sqlCommand.Parameters.Add(new SqlParameter("horaFin", nuevoDiaAtención.HoraFin));
                     sqlCommand.Parameters.Add(new SqlParameter("lugar", nuevoDiaAtención.Lugar));
-                    sqlCommand.Parameters.Add(new SqlParameter("tecnico", nuevoDiaAtención.IdTecnicoAcademico));
+                    sqlCommand.Parameters.Add(new SqlParameter("tecnico", null));
 
                     try
                     {
@@ -58,10 +61,10 @@ namespace LogicaDeNegocio
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine(ex.Message);
+                        throw ex;
                     }
                 }
-                acceso.CerrarConexion();
+                acceso.CloseConnection();
             }
         }
     }

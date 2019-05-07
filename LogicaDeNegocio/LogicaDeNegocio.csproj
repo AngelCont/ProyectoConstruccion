@@ -120,6 +120,14 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DAO\AlumnoDAO.cs" />
+    <Compile Include="DAO\CoordinadorDAO.cs" />
+    <Compile Include="DAO\CoordinadorTienePeriodoEntregaDAO.cs" />
+    <Compile Include="DAO\ExpedienteDAO.cs" />
+    <Compile Include="DAO\ExpedienteTieneCoordinadorDAO.cs" />
+    <Compile Include="DAO\PeriodoDeEntregaDAO.cs" />
+    <Compile Include="DAO\ReporteDAO.cs" />
+    <Compile Include="DAO\SolicitudDAO.cs" />
     <Compile Include="Interfaces\IExpedienteTieneCoordinadorDAO.cs" />
     <Compile Include="Interfaces\IAlumnoDAO.cs" />
     <Compile Include="Interfaces\ICoordinadorDAO.cs" />
@@ -147,7 +155,6 @@
     <Compile Include="DAO\OrganizacionVinculadaDAO.cs" />
     <Compile Include="Objetos\PeriodoDeEntrega.cs" />
     <Compile Include="Objetos\ProgramaEducativo.cs" />
-    <Compile Include="DAO\ProgramaEducativoDAO.cs" />
     <Compile Include="Objetos\Reporte.cs" />
     <Compile Include="Objetos\Solicitud.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -165,7 +172,12 @@
       <Version>4.6.0</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\AccesoDeDatos\AccesoDeDatos.csproj">
+      <Project>{4f7cab21-f150-4b79-90f1-44409f5b8c9c}</Project>
+      <Name>AccesoDeDatos</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

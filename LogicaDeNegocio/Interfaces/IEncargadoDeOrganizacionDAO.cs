@@ -9,6 +9,6 @@ namespace LogicaDeNegocio
     interface IEncargadoDeOrganizacionDAO
     {
         void GuardarEncargadoDeOrganizacion(EncargadoDeOrganizacion nuevoEncargadoDeOrganizacion);
-        EncargadoDeOrganizacion CargarEncargadoDeOrganizacion();
+        EncargadoDeOrganizacion CargarEncargadoDeOrganizacion(int idOctanizacion);
     }
 }

@@ -9,7 +9,6 @@ namespace LogicaDeNegocio
     interface IExpedienteDAO
     {
         void GuardarExpediente(Expediente nuevoExpediente);
-        Expediente CargarExpedientePorMatricula(string matricula);
         void SumarHoras(int horasRegistradas);
     }
 }
