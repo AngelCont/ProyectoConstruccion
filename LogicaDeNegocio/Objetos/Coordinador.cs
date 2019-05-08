@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LogicaDeNegocio
+namespace LogicaDeNegocio.Objetos
 {
     public class Coordinador
     {
         public int IdCoordinador { get; set; }
-        public string Nombre { get; set; }
-        public string ApellidoPaterno { get; set; }
-        public string ApellidoMaterno { get; set; }
-        public string Correo { get; set; }
+        public String Nombre { get; set; }
+        public String ApellidoPaterno { get; set; }
+        public String ApellidoMaterno { get; set; }
+        public String CorreoElectronico { get; set; }
         public int NumeroDePersonal { get; set; }
-        public string Telefono { get; set; }
+        public String Telefono { get; set; }
     }
 }

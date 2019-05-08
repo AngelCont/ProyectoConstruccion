@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace LogicaDeNegocio.Objetos
 {
-    public class Reporte
+    public class Documento
     {
-        public int IdReporte { get; set; }
-        public String Actividad{ get; set; }
+        public int IdDocumento { get; set; }
         public Byte[] Archivo { get; set; }
         public DateTime Fecha { get; set; }
-        public int HorasRegistradaas { get; set; }
         public int IdExpediente { get; set; }
     }
 }
