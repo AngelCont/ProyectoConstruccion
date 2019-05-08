@@ -3,20 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LogicaDeNegocio.Objetos;
 
-namespace LogicaDeNegocio
+namespace LogicaDeNegocio.Interfaces
 {
-    interface ICoordinadorDAO
+    interface ICoordinadorDeServicioSocialDAO
     {
-        void GuardarCoordinador(Coordinador nuevoCoordinador);
-        List<Coordinador> CargarCoordinadores();
-        Coordinador CargarCoordinadorPorNumeroPersonal(int numeroDePersonal);
-        void DarDeBajaCoordinador(int idCoordinador);
-        void ModificarNombre(string nuevoNombre, int idCoordinador);
-        void ModificarApellidoPaterno(string nuevoApellidoPaterno, int idCoordinador);
-        void ModificarApellidoMaterno(string nuevoApellidoMaterno, int idCoordinador);
-        void ModificarCorreo(string nuevoEmail, int idCoordinador);
-        void ModificarNumeroDePersonal(string nuevoNumeroDePersonal, int idCoordinador);
-        void ModificarTelefono(string nuevoTelefono, int idCoordinador);
+        CoordinadorDeServicioSocial recuperarDatos(int numeroDePersonal);
+        List<CoordinadorDeServicioSocial> recuperarListaDeCoordinadores();
+        void cambiarEstado(CoordinadorDeServicioSocial coordinador);
+        void actualizarDatosBasicos(CoordinadorDeServicioSocial coordinador);
+        void registrarCoordinador(CoordinadorDeServicioSocial coordinador);
+        
     }
 }
